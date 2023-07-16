@@ -1,2 +1,3 @@
 @echo OFF
-start cmd /k "pip install pandas & pip install scikit-learn & pip install flask & pip install -U flask-cors & exit"
+start cmd /k "pip install pandas scikit-learn flask flask-cors & exit"
+start cmd /k "cd my-ai & npm install & exit"

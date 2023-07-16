@@ -1,0 +1,5 @@
+<div>
+    <label for="text">Enter Text:</label>
+    <textarea id="text" [(ngModel)]="textInput" (input)="detectLanguage()"></textarea>
+</div>
+<div *ngIf="!isValidLength()">Please enter atleast {{ minCharacters }} characters</div>

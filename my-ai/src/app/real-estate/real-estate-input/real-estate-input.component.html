@@ -1,0 +1,11 @@
+<div *ngFor="let column of columns">
+    <div>
+        <label [for]="column">{{ transformColumnName(column) + ':' }}</label>
+    </div>
+    <div>
+        <ng-select [id]="column" [(ngModel)]="selectedOption[column]" [items]="dataValues[column]"
+                   bindLabel="item" bindValue="item" [searchFn]="customSearch" (change)="getResult()">
+            <ng-template ng-option-tmp let-item="item">{{ item }}</ng-template>
+        </ng-select>
+    </div>
+</div>
