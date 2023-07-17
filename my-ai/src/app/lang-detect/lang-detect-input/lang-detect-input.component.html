@@ -1,5 +1,5 @@
-<div>
+<div class="form-group">
     <label for="text">Enter Text:</label>
-    <textarea id="text" [(ngModel)]="textInput" (input)="detectLanguage()"></textarea>
+    <textarea id="text" class="form-control" [(ngModel)]="textInput" (input)="detectLanguage()"></textarea>
 </div>
-<div *ngIf="!isValidLength()">Please enter atleast {{ minCharacters }} characters</div>
+<div  class="alert alert-warning" *ngIf="!isValidLength()">Please enter atleast {{ minCharacters }} characters</div>
