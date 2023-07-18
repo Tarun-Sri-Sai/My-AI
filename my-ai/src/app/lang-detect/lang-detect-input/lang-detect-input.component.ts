@@ -11,7 +11,7 @@ export class LangDetectInputComponent {
     textInput: string = ''
     private timeout: boolean = false
     minCharacters: number = 20
-    private timeoutMillis: number = 100
+    private timeoutMillis: number = 250
 
     constructor(private http: HttpClient, private langDetectApp: LangDetectAppService) { }
 
