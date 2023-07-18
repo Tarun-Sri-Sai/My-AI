@@ -22,7 +22,6 @@ import { RealEstateInputComponent } from './real-estate/real-estate-input/real-e
 import { RealEstateResultComponent } from './real-estate/real-estate-result/real-estate-result.component';
 import { TicTacToeTitleComponent } from './tic-tac-toe/tic-tac-toe-title/tic-tac-toe-title.component';
 import { TicTacToeBoardComponent } from './tic-tac-toe/tic-tac-toe-board/tic-tac-toe-board.component';
-import { TicTacToeCellComponent } from './tic-tac-toe/tic-tac-toe-cell/tic-tac-toe-cell.component';
 import { TicTacToePlayerComponent } from './tic-tac-toe/tic-tac-toe-player/tic-tac-toe-player.component';
 import { TicTacToeResultComponent } from './tic-tac-toe/tic-tac-toe-result/tic-tac-toe-result.component';
 
@@ -44,7 +43,6 @@ import { TicTacToeResultComponent } from './tic-tac-toe/tic-tac-toe-result/tic-t
     RealEstateResultComponent,
     TicTacToeTitleComponent,
     TicTacToeBoardComponent,
-    TicTacToeCellComponent,
     TicTacToePlayerComponent,
     TicTacToeResultComponent
   ],

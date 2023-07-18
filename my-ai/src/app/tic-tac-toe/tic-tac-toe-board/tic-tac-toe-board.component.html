@@ -1,17 +1,7 @@
-<div >
-    <div >
-        <app-tic-tac-toe-cell row=0 col=0></app-tic-tac-toe-cell>
-        <app-tic-tac-toe-cell row=0 col=1></app-tic-tac-toe-cell>
-        <app-tic-tac-toe-cell row=0 col=2></app-tic-tac-toe-cell>
-    </div>
-    <div >
-        <app-tic-tac-toe-cell row=1 col=0></app-tic-tac-toe-cell>
-        <app-tic-tac-toe-cell row=1 col=1></app-tic-tac-toe-cell>
-        <app-tic-tac-toe-cell row=1 col=2></app-tic-tac-toe-cell>
-    </div>
-    <div >
-        <app-tic-tac-toe-cell row=2 col=0></app-tic-tac-toe-cell>
-        <app-tic-tac-toe-cell row=2 col=1></app-tic-tac-toe-cell>
-        <app-tic-tac-toe-cell row=2 col=2></app-tic-tac-toe-cell>
+<div #board>
+    <div *ngFor="let i of indices" class="board-row">
+        <div *ngFor="let j of indices" (click)="playerMark(i, j)" [ngStyle]="style(i, j)">
+            {{ mark(i, j) }}
+        </div>
     </div>
 </div>
