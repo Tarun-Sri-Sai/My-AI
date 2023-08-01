@@ -8,3 +8,10 @@
 .form-select ::ng-deep .ng-dropdown-panel .ng-option {
     padding: 8px;
 }
+
+.input {
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    border-radius: 5px;
+    padding: 8px;
+    width: 100%;
+}
