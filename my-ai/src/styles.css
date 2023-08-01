@@ -16,3 +16,7 @@ body {
 .sub-title {
     font-size: 50px;
 }
+
+.top-spacing {
+    margin-top: 10px;
+}
