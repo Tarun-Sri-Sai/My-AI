@@ -7,8 +7,9 @@ from pandas import DataFrame
 
 class App:
     def __init__(self):
-        headers_path = path.join('..', 'cache', 'real_estate_predictor', 'headers.json')
-        model_path = path.join('..', 'cache', 'real_estate_predictor', 'model.sav')
+        cache_dir = path.join('..', 'cache', 'real_estate_predictor')
+        headers_path = path.join(cache_dir, 'headers.json')
+        model_path = path.join(cache_dir, 'model.sav')
         if not any([path.isfile(headers_path), path.isfile(model_path)]):
             run_model()
         else:
