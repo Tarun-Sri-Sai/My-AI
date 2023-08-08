@@ -33,43 +33,28 @@ def data_values_endpoint():
     return {'data_values': data_values}
 
 
-@flask.route('/real_estate_predictor/input', methods=['PUT', 'GET'])
+@flask.route('/real_estate_predictor/input', methods=['POST'])
 def input_endpoint():
-    method = request.method
-    match method:
-        case 'PUT':
-            input_data = request.get_json()
-            real_estate_predictor.process_input(input_data)
-            return jsonify({'message': 'Success'}), 200
-        case 'GET':
-            processed_input = real_estate_predictor.get_processed()
-            return {'processed_input': processed_input}
+    input_data = request.json
+    real_estate_predictor.process_input(input_data)
+    processed_input = real_estate_predictor.get_processed()
+    return {'processed_input': processed_input}
 
 
-@flask.route('/real_estate_predictor/prediction', methods=['PUT', 'GET'])
+@flask.route('/real_estate_predictor/prediction', methods=['POST'])
 def prediction_endpoint():
-    method = request.method
-    match method:
-        case 'PUT':
-            processed_input = request.get_json()
-            real_estate_predictor.predict_price(processed_input)
-            return jsonify({'message': 'Success'}), 200
-        case 'GET':
-            price_in_lacs = real_estate_predictor.get_price()
-            return {'price_in_lacs': price_in_lacs}
+    processed_input = request.json
+    real_estate_predictor.predict_price(processed_input)
+    price_in_lacs = real_estate_predictor.get_price()
+    return {'price_in_lacs': price_in_lacs}
 
 
-@flask.route('/language_detector/language', methods=['PUT', 'GET'])
+@flask.route('/language_detector/language', methods=['POST'])
 def detect_language_endpoint():
-    method = request.method
-    match method:
-        case 'PUT':
-            text_input = request.get_json()['text_input']
-            language_detector.compute_language(text_input)
-            return jsonify({'message': 'Success'}), 200
-        case 'GET':
-            language_code = language_detector.get_language()
-            return {'language_code': language_code}
+    text_input = request.json['text_input']
+    language_detector.compute_language(text_input)
+    language_code = language_detector.get_language()
+    return {'language_code': language_code}
 
 
 if __name__ == '__main__':

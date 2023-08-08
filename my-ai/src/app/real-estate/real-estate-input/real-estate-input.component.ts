@@ -67,50 +67,26 @@ export class RealEstateInputComponent {
     }
 
     processInput(): void {
-        this.http.put<any>('http://localhost:5000/real_estate_predictor/input', this.inputData)
-            .subscribe({
-                next: () => {
-                    this.getProcessed()
-                },
-                error: (error) => {
-                    console.error("Couldn't process input due to ", error)
-                }
-            })
-    }
-
-    getProcessed(): void {
-        this.http.get<any>('http://localhost:5000/real_estate_predictor/input')
+        this.http.post<any>('http://localhost:5000/real_estate_predictor/input', this.inputData)
             .subscribe({
                 next: (response) => {
                     this.processedInput = response['processed_input']
                     this.predictPrice()
                 },
                 error: (error) => {
-                    console.error("Couldn't retrieve processed input due to ", error)
+                    console.error("Couldn't post input due to ", error)
                 }
             })
     }
 
     predictPrice(): void {
-        this.http.put<any>('http://localhost:5000/real_estate_predictor/prediction', this.processedInput)
-            .subscribe({
-                next: () => {
-                    this.getPrice()
-                },
-                error: (error) => {
-                    console.error("Couldn't predict price due to ", error)
-                }
-            })
-    }
-
-    getPrice(): void {
-        this.http.get<any>('http://localhost:5000/real_estate_predictor/prediction')
+        this.http.post<any>('http://localhost:5000/real_estate_predictor/prediction', this.processedInput)
             .subscribe({
                 next: (response) => {
                     this.realEstateApp.result = response['price_in_lacs']
                 },
                 error: (error) => {
-                    console.error("Couldn't retrieve price due to ", error)
+                    console.error("Couldn't predict price due to ", error)
                 }
             })
     }

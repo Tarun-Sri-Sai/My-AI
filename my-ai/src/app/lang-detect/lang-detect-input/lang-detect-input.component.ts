@@ -32,25 +32,13 @@ export class LangDetectInputComponent {
     }
 
     computeLanguage(): void {
-        this.http.put<any>('http://localhost:5000/language_detector/language', { 'text_input': this.textInput })
-            .subscribe({
-                next: (response) => {
-                    this.getLanguageCode()
-                },
-                error: (error) => {
-                    console.error("Couldn't post text due to: ", error)
-                }
-            })
-    }
-
-    getLanguageCode(): void {
-        this.http.get<any>('http://localhost:5000/language_detector/language')
+        this.http.post<any>('http://localhost:5000/language_detector/language', { 'text_input': this.textInput })
             .subscribe({
                 next: (response) => {
                     this.langDetectApp.result = response['language_code']
                 },
                 error: (error) => {
-                    console.error("Couldn't get language due to: ", error)
+                    console.error("Couldn't post text due to: ", error)
                 }
             })
     }
