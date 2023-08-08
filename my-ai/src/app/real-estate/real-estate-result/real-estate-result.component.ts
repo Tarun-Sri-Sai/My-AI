@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RealEstateAppService } from '../real-estate-app.service';
+import { PriceService } from '../price.service';
 
 @Component({
     selector: 'app-real-estate-result',
@@ -7,5 +7,5 @@ import { RealEstateAppService } from '../real-estate-app.service';
     styleUrls: ['./real-estate-result.component.css'],
 })
 export class RealEstateResultComponent {
-    constructor(public realEstateApp: RealEstateAppService) {}
+    constructor(public priceService: PriceService) {}
 }

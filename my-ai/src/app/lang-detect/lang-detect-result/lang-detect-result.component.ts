@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LangDetectAppService } from '../lang-detect-app.service';
+import { LanguageService } from '../language.service';
 
 @Component({
     selector: 'app-lang-detect-result',
@@ -7,5 +7,5 @@ import { LangDetectAppService } from '../lang-detect-app.service';
     styleUrls: ['./lang-detect-result.component.css'],
 })
 export class LangDetectResultComponent {
-    constructor(public langDetectApp: LangDetectAppService) {}
+    constructor(public languageService: LanguageService) {}
 }

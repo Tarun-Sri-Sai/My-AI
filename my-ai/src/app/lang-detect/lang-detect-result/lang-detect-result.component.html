@@ -1,3 +1,3 @@
-<div class="alert alert-info" *ngIf="this.langDetectApp.result">
-    {{ "This text is in " + this.langDetectApp.result }}
+<div class="alert alert-info" *ngIf="languageService.getLanguage()">
+    {{ "This text is in " + languageService.getLanguage() }}
 </div>

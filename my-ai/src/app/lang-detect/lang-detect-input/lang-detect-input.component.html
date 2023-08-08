@@ -1,10 +1,10 @@
 <div class="form-group">
     <label for="text">Enter Text:</label>
     <textarea
+        class="form-control top-spacing"
         id="text"
-        class="form-control"
         [(ngModel)]="textInput"
-        (input)="detectLanguage()"
+        (input)="sendInput()"
     ></textarea>
 </div>
 <div class="alert alert-warning" *ngIf="!isValidLength()">
