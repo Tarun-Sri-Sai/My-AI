@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -26,34 +25,34 @@ import { TicTacToePlayerComponent } from './tic-tac-toe/tic-tac-toe-player/tic-t
 import { TicTacToeResultComponent } from './tic-tac-toe/tic-tac-toe-result/tic-tac-toe-result.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavComponent,
-    HomeComponent,
-    LangDetectComponent,
-    RealEstateComponent,
-    TicTacToeComponent,
-    HomeTitleComponent,
-    HomeContentComponent,
-    LangDetectTitleComponent,
-    LangDetectInputComponent,
-    LangDetectResultComponent,
-    RealEstateTitleComponent,
-    RealEstateInputComponent,
-    RealEstateResultComponent,
-    TicTacToeTitleComponent,
-    TicTacToeBoardComponent,
-    TicTacToePlayerComponent,
-    TicTacToeResultComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    NgSelectModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavComponent,
+        HomeComponent,
+        LangDetectComponent,
+        RealEstateComponent,
+        TicTacToeComponent,
+        HomeTitleComponent,
+        HomeContentComponent,
+        LangDetectTitleComponent,
+        LangDetectInputComponent,
+        LangDetectResultComponent,
+        RealEstateTitleComponent,
+        RealEstateInputComponent,
+        RealEstateResultComponent,
+        TicTacToeTitleComponent,
+        TicTacToeBoardComponent,
+        TicTacToePlayerComponent,
+        TicTacToeResultComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        NgSelectModule,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

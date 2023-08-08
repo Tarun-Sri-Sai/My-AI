@@ -1,3 +1,7 @@
 <div class="alert alert-info">
-    {{ ticTacToeApp.result != ticTacToeApp.EMPTY ? ticTacToeApp.result + ' has won!' : 'Game has tied.' }}
+    {{
+        ticTacToeApp.result != ticTacToeApp.EMPTY
+            ? ticTacToeApp.result + " has won!"
+            : "Game has tied."
+    }}
 </div>

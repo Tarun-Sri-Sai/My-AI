@@ -1,6 +1,10 @@
 <div #board>
     <div *ngFor="let i of indices" class="board-row">
-        <div *ngFor="let j of indices" (click)="playerMark(i, j)" [ngStyle]="style(i, j)">
+        <div
+            *ngFor="let j of indices"
+            (click)="playerMark(i, j)"
+            [ngStyle]="style(i, j)"
+        >
             {{ mark(i, j) }}
         </div>
     </div>

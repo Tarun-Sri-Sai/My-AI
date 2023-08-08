@@ -5,51 +5,60 @@ import { LangDetectAppService } from '../lang-detect-app.service';
 @Component({
     selector: 'app-lang-detect-input',
     templateUrl: './lang-detect-input.component.html',
-    styleUrls: ['./lang-detect-input.component.css']
+    styleUrls: ['./lang-detect-input.component.css'],
 })
 export class LangDetectInputComponent {
-    textInput: string = ''
-    private timeout: boolean = false
-    minCharacters: number = 20
-    private timeoutMillis: number = 250
+    textInput: string = '';
+    private timeout: boolean = false;
+    minCharacters: number = 20;
+    private timeoutMillis: number = 250;
 
-    constructor(private http: HttpClient, private langDetectApp: LangDetectAppService) { }
+    constructor(
+        private http: HttpClient,
+        private langDetectApp: LangDetectAppService
+    ) {}
 
     detectLanguage(): void {
         if (this.timeout) {
-            return
+            return;
         }
 
-        this.timeout = true
+        this.timeout = true;
 
         if (!this.isValidLength()) {
-            this.resetTimeout()
-            return
+            this.resetTimeout();
+            return;
         }
 
-        this.computeLanguage()
-        this.resetTimeout()
+        this.computeLanguage();
+        this.resetTimeout();
     }
 
     computeLanguage(): void {
-        this.http.post<any>('http://localhost:5000/language_detector/language', { 'text_input': this.textInput })
+        this.http
+            .post<any>('http://localhost:5000/language_detector/language', {
+                text_input: this.textInput,
+            })
             .subscribe({
                 next: (response) => {
-                    this.langDetectApp.result = response['language_code']
+                    this.langDetectApp.result = response['language_code'];
                 },
                 error: (error) => {
-                    console.error("Couldn't post text due to: ", error)
-                }
-            })
+                    console.error("Couldn't post text due to: ", error);
+                },
+            });
     }
 
     isValidLength(): boolean {
-        return this.textInput.trim().replaceAll(/\s+/g, ' ').length >= this.minCharacters
+        return (
+            this.textInput.trim().replaceAll(/\s+/g, ' ').length >=
+            this.minCharacters
+        );
     }
 
     resetTimeout(): void {
         setTimeout(() => {
-            this.timeout = false
-        }, this.timeoutMillis)
+            this.timeout = false;
+        }, this.timeoutMillis);
     }
 }
