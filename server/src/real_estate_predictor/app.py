@@ -7,7 +7,7 @@ from pandas import DataFrame
 
 class App:
     def __init__(self):
-        cache_dir = path.join('..', 'cache', 'real_estate_predictor')
+        cache_dir = path.join('..', '..', 'cache', 'real_estate_predictor')
         headers_path = path.join(cache_dir, 'headers.json')
         model_path = path.join(cache_dir, 'model.sav')
         if not any([path.isfile(headers_path), path.isfile(model_path)]):
@@ -22,7 +22,7 @@ class App:
 
     def get_columns(self):
         return self.headers['columns']
-    
+
     def get_data_values(self):
         return self.headers['data_values']
 

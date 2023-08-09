@@ -10,13 +10,13 @@ class App:
     def __init__(self):
         self.N = 3
         self.MAX_INPUT_CHARS = 1024
-        self.cache_dir = path.join('..', 'cache', 'language_detector')
+        self.cache_dir = path.join('..', '..', 'cache', 'language_detector')
         if not path.isdir(self.cache_dir):
             makedirs(self.cache_dir)
         self.cache_path = path.join(self.cache_dir, 'cache.json')
         if not path.isfile(self.cache_path):
             system(f'echo {{}} > {self.cache_path}')
-        self.csv_dir = path.join( '..', 'data', 'language_detector')
+        self.csv_dir = path.join('..', '..', 'data', 'language_detector')
         self.csv_path = path.join(self.csv_dir, 'data_13k.csv')
         if open(self.cache_path, 'r', encoding='utf-8').read().strip() == '{}':
             self.write_to_cache()
@@ -65,9 +65,11 @@ class App:
         lang_range = range(len(self.langs_list))
         lang_text_list = []
         for lang in self.langs_list:
-            lang_text = ' '.join([sentence for sentence in self.csv_data[self.csv_data['lang'] == lang]['sentence']])
+            lang_text = ' '.join(
+                [sentence for sentence in self.csv_data[self.csv_data['lang'] == lang]['sentence']])
             lang_text_list.append(lang_text)
-        lang_ngrams_list = [self.get_ngrams(lang_text_list[i]) for i in lang_range]
+        lang_ngrams_list = [self.get_ngrams(
+            lang_text_list[i]) for i in lang_range]
         return [self.compute_log_probs(lang_ngrams_list[i]) for i in lang_range]
 
     def get_log_prob(self, text_ngrams, lang_ngrams_log_probs):
@@ -78,8 +80,10 @@ class App:
         text_ngrams = self.get_ngrams(text)
         log_prob_dist_list = []
         for i in range(len(self.langs_list)):
-            log_prob_dist_list.append(self.get_log_prob(text_ngrams, self.lang_ngrams_log_probs_list[i]))
-        result = self.langs_list[log_prob_dist_list.index(max(log_prob_dist_list))]
+            log_prob_dist_list.append(self.get_log_prob(
+                text_ngrams, self.lang_ngrams_log_probs_list[i]))
+        result = self.langs_list[log_prob_dist_list.index(
+            max(log_prob_dist_list))]
         self.language_code = result.upper()
 
     def get_language(self):
