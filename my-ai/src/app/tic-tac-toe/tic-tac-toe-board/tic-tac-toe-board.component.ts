@@ -28,7 +28,6 @@ export class TicTacToeBoardComponent implements AfterViewInit {
             return;
         }
         let parentWidth = this.boardRef.nativeElement.offsetWidth;
-        console.log(this.boardRef);
         this.cellSize = parentWidth / 3;
         this.fontSize = this.cellSize * 0.7;
     }
