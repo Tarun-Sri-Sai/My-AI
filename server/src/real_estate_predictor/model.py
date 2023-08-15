@@ -35,7 +35,7 @@ def run_model():
     # Reading the CSV file
     try:
         data_dir = path.join('..', '..', 'data', 'real_estate_predictor')
-        data_path = path.join(data_dir, 'data.csv')
+        data_path = path.join(data_dir, 'real_estate.csv')
         df = read_csv(data_path)
     except FileNotFoundError as exc:
         print(f'{type(exc).__name__}: {getcwd()} -> {data_path}')
@@ -89,7 +89,7 @@ def run_model():
     model.fit(X, Y)
 
     # Creating necessary directories
-    cache_dir = path.join('..', '..', 'cache', 'real_estate_predictor')
+    cache_dir = path.join('..', '..', 'data', 'cache', 'real_estate_predictor')
     makedirs(cache_dir)
 
     # Saving the model
