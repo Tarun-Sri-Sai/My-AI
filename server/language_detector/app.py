@@ -10,13 +10,13 @@ class App:
     def __init__(self):
         self.N = 3
         self.MAX_INPUT_CHARS = 1024
-        self.cache_dir = path.join('..', '..', 'data', 'cache', 'language_detector')
+        self.cache_dir = path.join('..', 'data', 'cache', 'language_detector')
         if not path.isdir(self.cache_dir):
             makedirs(self.cache_dir)
         self.cache_path = path.join(self.cache_dir, 'cache.json')
         if not path.isfile(self.cache_path):
             system(f'echo {{}} > {self.cache_path}')
-        self.csv_dir = path.join('..', '..', 'data', 'language_detector')
+        self.csv_dir = path.join('..', 'data', 'language_detector')
         self.csv_path = path.join(self.csv_dir, 'lang_13k.csv')
         if open(self.cache_path, 'r', encoding='utf-8').read().strip() == '{}':
             self.write_to_cache()
