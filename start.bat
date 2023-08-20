@@ -6,5 +6,5 @@ start cmd /k ^
     "& exit"
 
 start cmd /k ^
-    "cd my-ai" ^
+    "cd frontend" ^
     "& npm start"
