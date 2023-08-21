@@ -1,12 +1,12 @@
 <div class="form-group">
-    <label for="text">Enter Text:</label>
-    <textarea
-        class="form-control top-spacing"
-        id="text"
-        [(ngModel)]="textInput"
-        (input)="sendInput()"
-    ></textarea>
+  <label for="text">Enter Text:</label>
+  <textarea
+    class="form-control top-spacing"
+    id="text"
+    [(ngModel)]="textInput"
+    (input)="sendInput()"
+  ></textarea>
 </div>
 <div class="alert alert-warning" *ngIf="!isValidLength()">
-    Please enter atleast {{ minCharacters }} characters
+  Please enter atleast {{ minCharacters }} characters
 </div>

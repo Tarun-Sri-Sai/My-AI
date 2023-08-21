@@ -6,15 +6,15 @@ import { RealEstateComponent } from './real-estate/real-estate.component';
 import { TicTacToeComponent } from './tic-tac-toe/tic-tac-toe.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
-    { path: 'lang-detect', component: LangDetectComponent },
-    { path: 'real-estate', component: RealEstateComponent },
-    { path: 'tic-tac-toe', component: TicTacToeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'lang-detect', component: LangDetectComponent },
+  { path: 'real-estate', component: RealEstateComponent },
+  { path: 'tic-tac-toe', component: TicTacToeComponent },
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
