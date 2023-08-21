@@ -3,8 +3,27 @@ import { TicTacToeAppService } from '../tic-tac-toe-app.service';
 
 @Component({
   selector: 'app-tic-tac-toe-board',
-  templateUrl: './tic-tac-toe-board.component.html',
-  styleUrls: ['./tic-tac-toe-board.component.css'],
+  template: `
+    <div #board>
+      <div *ngFor="let i of indices" class="board-row">
+        <div
+          *ngFor="let j of indices"
+          (click)="playerMark(i, j)"
+          [ngStyle]="style(i, j)"
+        >
+          {{ mark(i, j) }}
+        </div>
+      </div>
+    </div>
+
+  `,
+  styles: [`
+    .board-row {
+      display: flex;
+      align-items: center;
+    }
+
+  `],
 })
 export class TicTacToeBoardComponent implements AfterViewInit {
   @ViewChild('board') boardRef!: ElementRef;
@@ -76,3 +95,4 @@ export class TicTacToeBoardComponent implements AfterViewInit {
     };
   }
 }
+
