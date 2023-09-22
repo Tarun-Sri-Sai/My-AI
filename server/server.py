@@ -11,7 +11,7 @@ sys_path.append(language_detector_dir)
 
 from real_estate_predictor.real_estate import RealEstate
 from language_detector.language import Language
-from server import Flask, request, jsonify
+from flask import Flask, request
 from flask_cors import CORS
 
 
