@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ColumnsService } from '../columns.service';
-import { DataValuesService } from '../data-values.service';
-import { PriceService } from '../price.service';
+import { ColumnsService } from './columns.service';
+import { DataValuesService } from './data-values.service';
+import { PriceService } from './price.service';
 
 @Component({
   selector: 'app-real-estate-input',

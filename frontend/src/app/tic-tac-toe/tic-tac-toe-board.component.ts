@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { TicTacToeAppService } from '../tic-tac-toe-app.service';
+import { TicTacToeAppService } from './tic-tac-toe-app.service';
 
 @Component({
   selector: 'app-tic-tac-toe-board',
